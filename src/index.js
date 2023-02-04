@@ -11,11 +11,10 @@ const users = [];
 
 function checksExistsUserAccount(request, response, next) {
   const { username } = request.headers;
-  console.log("username", username);
+
   const userAccount = users.find((user) => user.username === username);
 
   if (userAccount) {
-    console.log("entrou if");
     request.user = userAccount;
     next();
   } else {
